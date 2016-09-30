@@ -1,0 +1,5 @@
+= Loxybeat Docs
+
+Welcome to the Loxybeat documentation.
+
+
