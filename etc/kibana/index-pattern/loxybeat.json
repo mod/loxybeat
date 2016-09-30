@@ -1,0 +1,6 @@
+{
+  "fields": "[{\"count\": 0, \"analyzed\": false, \"indexed\": true, \"type\": \"string\", \"name\": \"beat.name\", \"scripted\": false, \"doc_values\": true}, {\"count\": 0, \"analyzed\": false, \"indexed\": true, \"type\": \"string\", \"name\": \"beat.hostname\", \"scripted\": false, \"doc_values\": true}, {\"count\": 0, \"analyzed\": false, \"indexed\": true, \"type\": \"date\", \"name\": \"@timestamp\", \"scripted\": false, \"doc_values\": true}, {\"count\": 0, \"analyzed\": false, \"indexed\": true, \"type\": \"string\", \"name\": \"tags\", \"scripted\": false, \"doc_values\": true}, {\"count\": 0, \"analyzed\": false, \"indexed\": true, \"name\": \"fields\", \"scripted\": false, \"doc_values\": true}, {\"count\": 0, \"analyzed\": false, \"indexed\": true, \"type\": \"number\", \"name\": \"counter\", \"scripted\": false, \"doc_values\": true}]",
+  "title": "loxybeat-*",
+  "fieldFormatMap": "{\"@timestamp\": {\"id\": \"date\"}}",
+  "timeFieldName": "@timestamp"
+}

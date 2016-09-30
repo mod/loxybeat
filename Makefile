@@ -6,6 +6,9 @@ ES_BEATS?=./vendor/github.com/elastic/beats
 GOPACKAGES=$(shell glide novendor)
 PREFIX?=.
 
+APP_NAME = loxy
+APP_VERSION = 0.1.0
+
 # Path to the libbeat Makefile
 -include $(ES_BEATS)/libbeat/scripts/Makefile
 
@@ -39,3 +42,19 @@ git-init:
 # This is called by the beats packer before building starts
 .PHONY: before-build
 before-build:
+
+
+.PHONY: app_build app_tag app_release
+
+app_build:
+	docker build -t $(APP_NAME):$(APP_VERSION) --rm .
+
+app_tag:
+	docker tag $(APP_NAME):$(APP_VERSION) $(APP_NAME):latest
+
+app_release: test tag_latest
+	docker push $(APP_NAME):$(APP_VERSION)
+	docker push $(APP_NAME)
+
+app_clean:
+	docker rmi $(APP_NAME):$(APP_VERSION)
