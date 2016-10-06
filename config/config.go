@@ -6,9 +6,11 @@ package config
 import "time"
 
 type Config struct {
-	Period time.Duration `config:"period"`
+	Address string        `config:"address"`
+	Timeout time.Duration `config:"timeout"`
 }
 
 var DefaultConfig = Config{
-	Period: 1 * time.Second,
+	Address: ":8080",
+	Timeout: 20 * time.Second,
 }

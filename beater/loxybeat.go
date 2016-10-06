@@ -62,6 +62,8 @@ func (bt *Loxybeat) handleLog(w http.ResponseWriter, r *http.Request) {
 }
 
 func (bt *Loxybeat) Stop() {
+	logp.Info("beater.Stop() Recieved")
+	bt.server.Stop()
 	bt.client.Close()
 	close(bt.done)
 }
