@@ -19,10 +19,16 @@ RUN wget --quiet https://github.com/mod/kaigara/releases/download/$KAIGARA_VERSI
 
 COPY operations /opt/provision/operations
 COPY resources /opt/provision/resources
+COPY metadata.yml /opt/provision
 ## Kaigara ]>
 
 VOLUME ["${APP_HOME}"]
 
+COPY loxybeat /usr/local/bin/
+COPY run-loxybeat.sh /usr/local/bin/
+
 ENTRYPOINT ["kaigara"]
 
-CMD ["start", "bash"]
+EXPOSE 8080
+
+CMD ["start", "run-loxybeat.sh"]
