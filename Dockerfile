@@ -23,6 +23,13 @@ COPY resources /opt/provision/resources
 
 VOLUME ["${APP_HOME}"]
 
+COPY loxybeat /usr/local/bin/
+COPY run-loxybeat.sh /usr/local/bin/
+COPY loxybeat.yml "${APP_HOME}"
+COPY loxybeat.template.json "${APP_HOME}"
+COPY loxybeat.template-es2x.json "${APP_HOME}"
+
 ENTRYPOINT ["kaigara"]
 
-CMD ["start", "bash"]
+CMD ["start", "run-loxybeat.sh"]
+#CMD ["start", "bash"]
