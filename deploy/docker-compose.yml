@@ -15,6 +15,7 @@ logstash:
     - "5044:5044"
   links:
     - elasticsearch
+
 kibana:
   build: kibana/
   volumes:
@@ -27,6 +28,6 @@ kibana:
 loxy:
   build: loxy/
   ports:
-    - "8080:8080"
+    - "9292:9292"
   links:
     - logstash
