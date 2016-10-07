@@ -47,5 +47,3 @@ before-build:
 
 build-deploy: $(BEATNAME)
 	cp $(BEATNAME) deploy/loxy
-	cp $(BEATNAME).yml deploy/loxy
-	cp $(BEATNAME).template.json deploy/loxy
