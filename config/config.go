@@ -6,11 +6,13 @@ package config
 import "time"
 
 type Config struct {
-	Address string        `config:"address"`
-	Timeout time.Duration `config:"timeout"`
+	Address   string        `config:"address"`
+	Timeout   time.Duration `config:"timeout"`
+	QueueSize uint          `config:"queuesize"`
 }
 
 var DefaultConfig = Config{
-	Address: ":8080",
-	Timeout: 20 * time.Second,
+	Address:   ":8080",
+	Timeout:   20 * time.Second,
+	QueueSize: 1024,
 }
