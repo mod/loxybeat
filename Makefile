@@ -43,18 +43,9 @@ git-init:
 .PHONY: before-build
 before-build:
 
+.PHONY: build-deploy
 
-.PHONY: app_build app_tag app_release
-
-app_build:
-	docker build -t $(APP_NAME):$(APP_VERSION) --rm .
-
-app_tag:
-	docker tag $(APP_NAME):$(APP_VERSION) $(APP_NAME):latest
-
-app_release: test tag_latest
-	docker push $(APP_NAME):$(APP_VERSION)
-	docker push $(APP_NAME)
-
-app_clean:
-	docker rmi $(APP_NAME):$(APP_VERSION)
+build-deploy: $(BEATNAME)
+	cp $(BEATNAME) deploy/loxy
+	cp $(BEATNAME).yml deploy/loxy
+	cp $(BEATNAME).template.json deploy/loxy
